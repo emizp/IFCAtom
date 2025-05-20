@@ -1,0 +1,9 @@
+Flask
+Werkzeug
+pandas
+matplotlib
+seaborn
+ifcopenshell
+# Add other dependencies as needed, e.g.:
+# openpyxl # For Excel operations if used by pandas
+# reportlab # For PDF generation if report_generator.py uses it

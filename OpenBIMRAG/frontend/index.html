@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFC Analyzer</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>IFC File Analyzer</h1>
+    </header>
+
+    <main>
+        <section id="file-upload-section">
+            <h2>Upload IFC Files</h2>
+            <input type="file" id="ifcFileInput" multiple accept=".ifc">
+            <button id="uploadButton">Upload</button>
+            <div id="upload-status"></div>
+        </section>
+
+        <section id="file-list-section">
+            <h2>Uploaded Files & Model Selection for Query</h2>
+            <div id="file-management-controls">
+                <button id="selectAllFilesButton">Select All</button>
+                <button id="deselectAllFilesButton">Deselect All</button>
+            </div>
+            <ul id="fileList"></ul>
+        </section>
+
+        <section id="ito-query-section">
+            <h2>Run ITO Query</h2>
+            <button id="extractDataButton">Extract Data</button>
+                <button id="generateChartButton" style="margin-left: 10px;">Generate Chart</button>
+                <button id="generateGraphButton" style="margin-left: 10px;">Generate Graph</button>
+            <div id="query-status"></div>
+
+            <h3>Filter Results</h3>
+            <div class="filter-controls">
+                <label for="filterIfcEntity">IFC Entity:</label>
+                <input type="text" id="filterIfcEntity" placeholder="e.g., IfcWall">
+                <label for="filterPropertySet">PropertySet:</label>
+                <input type="text" id="filterPropertySet" placeholder="e.g., Pset_WallCommon">
+                <label for="filterPropertyName">Property Name:</label>
+                <input type="text" id="filterPropertyName" placeholder="e.g., ThermalTransmittance">
+                <button id="applyFiltersButton">Apply Filters</button>
+                <button id="clearFiltersButton">Clear Filters</button>
+            </div>
+        </section>
+
+        <section id="results-section">
+            <h2>Query Results</h2>
+            <div id="data-table-container">
+                <h3>Data Table</h3>
+                <table id="resultsTable">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="chart-container">
+                <h3>Entity Distribution Chart</h3>
+                <div id="chart-navigation" style="display: none; margin-bottom: 10px;">
+                    <button id="prevChartButton">&lt; Prev</button>
+                    <span id="currentChartInfo"></span>
+                    <button id="nextChartButton">Next &gt;</button>
+                </div>
+                <img id="entityChart" src="" alt="IFC Entity Distribution Chart" style="display: none;">
+                <div id="noChartMessage" style="display: block;">No chart to display. Run a query first.</div>
+            </div>
+            <div id="graph-results-container">
+                <h3>Knowledge Graph</h3>
+                <div id="graph-results-area">Select a single processed file and click "Generate Graph".</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 IFC Analyzer App</p>
+    </footer>
+
+    <script src="static/js/main.js"></script>
+</body>
+</html>
